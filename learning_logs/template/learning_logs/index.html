@@ -1,0 +1,27 @@
+{% extends "learning_logs/base.html" %}
+{% block header %}
+    <div class="jumbotron">
+        <h2 style="color: blue; font-size: 46px;">Welcome to <strong>ISDaPPs</strong></h2>
+        <small>......This is an online application that helps you keep track of your daily activity. with <strong>DaPPs</strong> you dont need to worrry about loosing track.
+        </small>
+        
+    </div>
+{% endblock header %}
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            Click <a href="{% url 'new_topic' %}">here</a> to start your online journal....
+        </h4>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Today's Word</h3><br>
+        <h4>
+           Always remember that GOD + Hardwork + Preparation = Success
+        </h4><br>
+        <p>Enjoy your day...</p>
+    </div>
+</div>
+{% endblock content %}
