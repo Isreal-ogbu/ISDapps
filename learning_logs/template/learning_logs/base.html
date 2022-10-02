@@ -1,0 +1,53 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="Author" content="ogbu isreal blessing">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="An application for learning">
+        <title>ISDaPPs</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <style>
+        </style>
+    </head>
+    <body style="background-color:aliceblue !important;">
+        <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"></button>
+                    <a class="navbar-brand" href="{% url 'Home' %}" style="color: black;">Home</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'Topic' %}"  style="color: black;">Catalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'new_topic' %}" style="color: black;">Create new topic</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a><strong>{{ user.username }}</strong></a></li>
+                        <li><a href="{% url 'logout' %}"  style="color: black;">Log out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'register' %}" style="color: black;">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}" style="color: black;">Log in</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        </nav>
+        <div class="container">
+            <div class="page-header">
+                {% block header %}
+                {% endblock header %}
+            </div>
+            <div>
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </body>
+</html>
