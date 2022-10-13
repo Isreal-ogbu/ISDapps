@@ -20,10 +20,11 @@ from users import views as view
 from django.contrib.auth.views import LoginView
 
 urlpatterns = [
-    
-    path('Home/', views.index, name='Home'),
-    path('Topics/', views.Topics, name='Topic'),
-    path('Topics/<int:Topic_id>/', views.topic, name='topic'),
+
+    path('', views.index, name='Home'),
+    path('home/', views.index, name='Home'),
+    path('topics/', views.Topics, name='Topic'),
+    path('topics/<int:Topic_id>/', views.topic, name='topic'),
     path('new_topic/', views.new_topic, name='new_topic'),
     path('new_entry/<int:Entry_id>', views.new_entry, name='new_entry'),
     path('edit_entry/<int:entry_id>', views.edit_entry, name='edit_entry'),
