@@ -3,9 +3,10 @@
 {% load bootstrap3 %}
 
 {% block header %}
-    <h2>Have an acount? Sign In </h2>
+    <h3>Have an acount? Sign In </h3>
 {% endblock header %}
 {% block content %}
+
 <form action="{% url 'login' %}" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
