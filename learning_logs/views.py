@@ -21,7 +21,7 @@ def Topics(request):
     return render(request, 'learning_logs/topics.html', context=context)
 
 @login_required
-def topic(request,Topic_id):
+def topic(request, Topic_id):
     topic = Topic.objects.get(id=Topic_id)
     if topic.owner != request.user:
         raise Http404
