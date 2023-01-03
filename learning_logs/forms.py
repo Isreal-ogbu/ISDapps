@@ -1,6 +1,5 @@
 from dataclasses import field
 from django import forms
-
 from .models import Topic, Entry
 
 class Topicform(forms.ModelForm):
