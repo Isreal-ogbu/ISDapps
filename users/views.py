@@ -12,10 +12,6 @@ def Logout_views(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
 
-#def accounts_logout(request):
-#    logout(request)
-#    url = reverse("accounts:login")
-#    return redirect(url, args=(),kwargs={})
 
 def register(request):
     """register new user"""

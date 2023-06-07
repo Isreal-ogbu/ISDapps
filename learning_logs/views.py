@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .forms import Topicform, Entryform
 from .models import Entry, Topic
+from django.db.models import Q
 
 
 # Create your views here.
@@ -27,6 +28,7 @@ def topic(request, Topic_id):
         raise Http404
     entries = topic.entry_set.order_by('-date_added')
     context = {
+        "user" : request.user.username,
         'topic' : topic,
         'entries' : entries
     }
@@ -93,3 +95,15 @@ def edit_entry(request, entry_id):
         'form': form
     }
     return render(request, 'learning_logs/edit_entry.html', context=context)
+
+def search(request):
+    """search request imput"""
+    data = request.GET.get('query')
+    if data:
+        topics = Topic.objects.filter(Q(owner=request.user.id) & Q(text__icontains=data)).order_by('date_added')
+    else:
+        topics = []
+    context = {
+        "topics": topics
+    }
+    return render(request, 'learning_logs/search.html', context=context)

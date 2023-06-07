@@ -10,7 +10,7 @@
 <form action="{% url 'edit_entry' entry.id %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button name="Submit">Submit</button>
+    <button name="Submit"; style="color: rgb(0, 0, 0);"><b>Submit</b></button>
 </form>
 {% endblock content %} 
 

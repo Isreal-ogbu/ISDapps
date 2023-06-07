@@ -1,25 +1,25 @@
 {% extends "learning_logs/base.html" %}
 
 {% block header %}
-    <h2>
-        Topic: {{ topic }}
-    </h2>
+    <h3>
+        {{ user }}/{{ topic }}
+    </h3>
 {% endblock header %}
 
 {% block content %}
 
 <p>
-    <a href="{% url 'new_entry' topic.id %}">Add New Entry</a>
+    <a href="{% url 'new_entry' topic.id %}"><b>Add New</b></a>
 </p>
 {% for entry in entries %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3>
-                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+            <h4>
+                <p><b>{{ entry.date_added|date:'M d, Y H:i' }}</b></p>
                 <small>
-                    <P>Click <a href="{% url 'edit_entry' entry.id %}">here </a>to edit entry</P>
+                    <P>Click <a href="{% url 'edit_entry' entry.id %}"><b>here </b></a>to edit entry</P>
                 </small> 
-            </h3>
+            </h4>
         </div>
         <div class="panel-body">
             {{ entry.text|linebreaks }}
